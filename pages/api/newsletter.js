@@ -10,10 +10,10 @@ async function handler(req, res) {
     }
 
     const client = await MongoClient.connect(
-      "mongodb+srv://wowawawoa:Oaui8Jr6S8TbzOoC@cluster0.quye6t3.mongodb.net/newsletter?retryWrites=true&w=majority"
-    )
+      "mongodb+srv://wowawawoa:Oaui8Jr6S8TbzOoC@cluster0.quye6t3.mongodb.net/events?retryWrites=true&w=majority"
+    );
     const db = client.db();
-    await db.collection("emails").insertOne({ email: userEmail})
+    await db.collection("emails").insertOne({ email: userEmail });
 
     client.close();
     res.status(201).json({ message: "Signed up!" });
