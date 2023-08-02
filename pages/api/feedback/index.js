@@ -1,8 +1,8 @@
-import fs from 'fs';
-import path from 'path';
+import fs from "fs";
+import path from "path";
 
 export function buildFeedbackPath() {
-  return path.join(process.cwd(), 'data', 'feedback.json');
+  return path.join(process.cwd(), "data", "feedback.json");
 }
 
 export function extractFeedback(filePath) {
@@ -12,7 +12,7 @@ export function extractFeedback(filePath) {
 }
 
 function handler(req, res) {
-  if (req.method === 'POST') {
+  if (req.method === "POST") {
     const email = req.body.email;
     const feedbackText = req.body.text;
 
@@ -27,7 +27,7 @@ function handler(req, res) {
     const data = extractFeedback(filePath);
     data.push(newFeedback);
     fs.writeFileSync(filePath, JSON.stringify(data));
-    res.status(201).json({ message: 'Success!', feedback: newFeedback });
+    res.status(201).json({ message: "Success!", feedback: newFeedback });
   } else {
     const filePath = buildFeedbackPath();
     const data = extractFeedback(filePath);
