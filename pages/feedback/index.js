@@ -20,6 +20,9 @@ function FeedbackPage(props) {
             <button onClick={loadFeedbackHandler.bind(null, item.id)}>
               Show Details
             </button>
+            {/* <button onClick={() => loadFeedbackHandler(item.id)}>
+              Show Details
+            </button> */}
           </li>
         ))}
       </ul>
