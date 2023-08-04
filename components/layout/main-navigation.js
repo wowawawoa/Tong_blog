@@ -1,14 +1,12 @@
 import Link from "next/link";
 import Logo from "./logo";
+import classes from "./main-navigation.module.css";
 
 function MainNavigation() {
   return (
-    <header>
-      {/* if pass anything else than plain text, Link will not render an anchor tag */}
+    <header className={classes.header}>
       <Link href="/">
-        <a>
-          <Logo />
-        </a>
+        <Logo />
       </Link>
       <nav>
         <ul>
