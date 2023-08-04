@@ -1,8 +1,13 @@
+import { Fragment } from "react";
+import Head from "next/head";
+import Hero from "../components/home-page/hero";
+
 function HomePage() {
   return (
-    <div>
+    <Fragment>
       <h1>Home Page</h1>
-    </div>
+      <Hero />
+    </Fragment>
   );
 }
 
