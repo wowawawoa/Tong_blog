@@ -40,6 +40,8 @@ async function handler(req, res) {
   const result = await db.collection("users").insertOne({
     email: email,
     password: hashedPassword,
+    name: email,
+    image: null,
   });
 
   res.status(201).json({ message: "Created user!" });

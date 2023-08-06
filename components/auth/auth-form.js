@@ -48,7 +48,6 @@ function AuthForm() {
 
       if (!result.error) {
         // set some auth state
-        
       }
     } else {
       // create user
