@@ -23,6 +23,7 @@ async function createUser(email, password) {
 
 function AuthForm() {
   const [isLogin, setIsLogin] = useState(true);
+  const [isGoogleLogin, setIsGoogleLogin] = useState(false);
 
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
@@ -70,14 +71,19 @@ function AuthForm() {
       <form onSubmit={submitHandler}>
         <div className={classes.control}>
           <label htmlFor="email">Your Email</label>
-          <input type="email" id="email" required ref={emailInputRef} />
+          <input
+            type="email"
+            id="email"
+            required={!isGoogleLogin}
+            ref={emailInputRef}
+          />
         </div>
         <div className={classes.control}>
           <label htmlFor="password">Your Password</label>
           <input
             type="password"
             id="password"
-            required
+            required={!isGoogleLogin}
             ref={passwordInputRef}
           />
         </div>
@@ -89,6 +95,16 @@ function AuthForm() {
             onClick={switchAuthModeHandler}
           >
             {isLogin ? "Create new account" : "Login with existing account"}
+          </button>
+        </div>
+        <div className={classes.actions}>
+          <button
+            onClick={() => {
+              signIn("google");
+              setIsGoogleLogin(true);
+            }}
+          >
+            Google Login
           </button>
         </div>
       </form>
